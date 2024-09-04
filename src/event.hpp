@@ -9,6 +9,6 @@
  * 
  * @param quit Checks if we have quit the main loop
  */
-void handle_events(bool quit);
+void handle_events(bool& quit);
 
 #endif
