@@ -19,11 +19,13 @@ void init_win(){
 
     /* Initialising window and renderer */
 
-    win = SDL_CreateWindow("SDL Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 900, 800, SDL_WINDOW_SHOWN);
+    win = SDL_CreateWindow("SDL Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SDL_WINDOW_FULLSCREEN_DESKTOP, SDL_WINDOW_FULLSCREEN_DESKTOP, SDL_WINDOW_SHOWN);
     if(win == NULL){
         std::printf("Failed To Create Window: %s\n", SDL_GetError());
         return;
     }
+
+    SDL_SetWindowFullscreen(win, SDL_WINDOW_FULLSCREEN_DESKTOP);
 
     rnd = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if(rnd == NULL){

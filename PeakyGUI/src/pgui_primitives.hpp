@@ -14,6 +14,8 @@ typedef bool PGUI_Bool;
 
 typedef SDL_Rect PGUI_Rect;
 
+#define PGUI_UNDECIDED_VALUE 26112004
+
 typedef struct PGUI_background{
     SDL_Surface* surface;
     SDL_Texture* texture;

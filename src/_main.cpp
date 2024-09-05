@@ -4,9 +4,10 @@ int main(int argc, char* argv[]){
 
     init_win(); /* Initialise */
 
-    SDL_Surface* surface = IMG_Load("PeakyGUI/assets/box1.png");
-    PGUI_Component comp1 = PGUI_CreateComponent(0, 0, 150, 150, surface, rnd);
-    PGUI_Button butt1 = PGUI_CreateButton(PGUI_Increment, comp1);
+    SDL_Surface* surface = IMG_Load("PeakyGUI/assets/prov_bar.png");
+    PGUI_Component comp1 = PGUI_CreateComponent(0, 1080 - surface->h, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, surface, rnd);
+    PGUI_PrintComponent(comp1);
+    PGUI_Button butt1 = PGUI_CreateButton(PGUI_DebugPrint, comp1);
 
     bool quit = false;
 
