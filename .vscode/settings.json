@@ -63,6 +63,8 @@
         "string": "cpp",
         "fstream": "cpp",
         "sstream": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "list": "cpp",
+        "xhash": "cpp"
     }
 }

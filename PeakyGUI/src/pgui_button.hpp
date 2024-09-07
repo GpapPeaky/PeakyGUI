@@ -1,6 +1,5 @@
 #include "pgui_primitives.hpp"
 #include "pgui_component.hpp"
-#include <unordered_map>
 
 #ifndef __PGUI_BUTTON_H__
 #define __PGUI_BUTTON_H__
@@ -9,8 +8,6 @@ typedef struct PGUI_button{
     PGUI_Component component;
     PGUI_ButtonAction action;
 }PGUI_Button;
-
-extern std::unordered_map<int, PGUI_Button> PGUI_GlobalButtons;
 
 /**
  * @brief Creats a PGUI button

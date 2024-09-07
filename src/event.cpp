@@ -13,14 +13,7 @@ void handle_events(bool& quit){
             if(e.button.button == SDL_BUTTON_LEFT){
                 /* Check for button interactions */
                 SDL_GetMouseState(&mouse_x, &mouse_y);
-
-                for(auto it = PGUI_GlobalButtons.begin() ; it != PGUI_GlobalButtons.end() ; ++it){
-                    PGUI_Button& button = it->second;
-                    
-                    if(PGUI_ButtonPressed(button, mouse_x, mouse_y) == PGUI_True){
-                        PGUI_ExecuteButtonAction(button);
-                    }
-                }
+                PGUI_EventCycle(mouse_x, mouse_y);
             }
         }
     }

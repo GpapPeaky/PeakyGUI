@@ -4,12 +4,13 @@ int main(int argc, char* argv[]){
 
     init_win(); /* Initialise */
 
-    SDL_Surface* surface = IMG_Load("PeakyGUI/assets/prov_bar.png");
-    PGUI_Component comp1 = PGUI_CreateComponent(0, 1080 - surface->h, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, surface, rnd);
-    PGUI_PrintComponent(comp1);
-    PGUI_Button butt1 = PGUI_CreateButton(PGUI_DebugPrint, comp1);
-
     bool quit = false;
+
+    PGUI_CreateItem(PGUI_CreateComponent(1920 - IMG_Load("PeakyGUI/assets/leftbar.png")->w, 0, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/leftbar.png"), rnd),
+    {
+    PGUI_CreateButton(PGUI_DebugPrint, PGUI_CreateComponent(1920 - IMG_Load("PeakyGUI/assets/close.png")->w, 0, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/close.png"), rnd)),
+    PGUI_CreateButton(PGUI_Increment, PGUI_CreateComponent(1920 -  IMG_Load("PeakyGUI/assets/shieldFrame.png")->w, 200, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/shieldFrame.png"), rnd))
+    });
 
     while(!quit){
         /* Updates to assets / sprites */
@@ -18,8 +19,8 @@ int main(int argc, char* argv[]){
         /* Render functions */
         SDL_RenderClear(rnd);
 
-        PGUI_DrawButton(butt1, rnd);
-        
+        PGUI_DrawItems(rnd);
+
         SDL_RenderPresent(rnd);
     }
 

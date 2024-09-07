@@ -1,7 +1,5 @@
 #include "pgui_button.hpp"
 
-std::unordered_map<int, PGUI_Button> PGUI_GlobalButtons;
-
 PGUI_Button PGUI_CreateButton(PGUI_ButtonAction action, PGUI_component component){
     static int buttonID = 0;
     PGUI_Button new_button;
@@ -9,8 +7,6 @@ PGUI_Button PGUI_CreateButton(PGUI_ButtonAction action, PGUI_component component
     new_button.component.rect = component.rect;
     new_button.component.background = component.background;
     new_button.component.status = PGUI_IsButton;
-
-    PGUI_GlobalButtons[buttonID++] = new_button;
 
     return new_button;
 }
