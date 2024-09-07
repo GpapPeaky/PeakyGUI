@@ -6,10 +6,11 @@ int main(int argc, char* argv[]){
 
     bool quit = false;
 
-    PGUI_CreateItem(PGUI_CreateComponent(1920 - IMG_Load("PeakyGUI/assets/leftbar.png")->w, 0, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/leftbar.png"), rnd),
+    PGUI_CreateItem(PGUI_CreateComponent(1920 - IMG_Load("PeakyGUI/assets/bar.png")->w, 0, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/bar.png"), rnd), /* background comp */
     {
-    PGUI_CreateButton(PGUI_DebugPrint, PGUI_CreateComponent(1920 - IMG_Load("PeakyGUI/assets/close.png")->w, 0, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/close.png"), rnd)),
-    PGUI_CreateButton(PGUI_Increment, PGUI_CreateComponent(1920 -  IMG_Load("PeakyGUI/assets/shieldFrame.png")->w, 200, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/shieldFrame.png"), rnd))
+    PGUI_CreateButton(PGUI_Exit, PGUI_CreateComponent(1920 - IMG_Load("PeakyGUI/assets/cls.png")->w, 0, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/cls.png"), rnd)),
+    PGUI_CreateButton(PGUI_Increment, PGUI_CreateComponent(1920 - 25 -  IMG_Load("PeakyGUI/assets/inc.png")->w, 200, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/inc.png"), rnd)),
+    PGUI_CreateButton(PGUI_DebugPrint, PGUI_CreateComponent(1920 - 25 -  IMG_Load("PeakyGUI/assets/dbg.png")->w, 450, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, IMG_Load("PeakyGUI/assets/dbg.png"), rnd))
     });
 
     while(!quit){

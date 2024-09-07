@@ -13,4 +13,9 @@ void PGUI_DebugPrint(void);
  */
 void PGUI_Increment(void);
 
+/**
+ * @brief Forces an exit
+ */
+void PGUI_Exit(void);
+
 #endif
