@@ -1,4 +1,4 @@
-## PeakyGUI / (PGUI)
+## PeakyGUI / (PGUI.hpp)
 
 *Warning:*
 > THE PRODUCED EXECUTABLE HAS TO BE IN THE SAME DIR AS THE SDL2 DLL FILES.
@@ -7,6 +7,8 @@
 
 This is a custom made GUI library made to ease GUI construction in SDL2, C/C++.
 The library is based currently on SDL2, and requires a Basic SDL cycle for it to work correctly (exmpl: https://github.com/GpapPeaky/Basic-SDL2).
+
+Source code is included inside the PeakyGUI folder, as well as temporary assets (You can of course use your own).
 
 ## How to Use
 
