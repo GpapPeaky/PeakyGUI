@@ -6,10 +6,19 @@ int main(int argc, char* argv[]){
 
     bool quit = false;
 
-    PGUI_Button inc = PGUI_CreateButtonComplete(PGUI_Increment, 0, 0, IMG_Load("PeakyGUI/assets/inc.png"), rnd);
-    PGUI_Button cls = PGUI_CreateButtonComplete(PGUI_Exit, 0, 75, IMG_Load("PeakyGUI/assets/cls.png"), rnd);
-    PGUI_Button dbg = PGUI_CreateButtonComplete(PGUI_DebugPrint, 0, 150, IMG_Load("PeakyGUI/assets/dbg.png"), rnd);
-    PGUI_CreateItemComplete(0, 0, IMG_Load("PeakyGUI/assets/leftbar.png"), rnd, {inc, cls, dbg});
+    int a = 1;
+    int b = 23;
+
+    void* ptrA = &a;
+    void* ptrB = &b;
+
+    std::vector<void*> args = {ptrA, ptrB};
+    PGUI_ActionArguments actionArgs = { PGUI_Sum, args, 2 };
+
+    PGUI_Button butt = PGUI_CreateButton(actionArgs, 
+    PGUI_CreateComponent(0, 0, 0, 0, IMG_Load("PeakyGUI/assets/cls.png"), rnd));
+
+    PGUI_ExecuteButtonAction(butt);
 
     while(!quit){
         /* Updates to assets / sprites */

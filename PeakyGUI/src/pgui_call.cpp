@@ -13,3 +13,15 @@ void PGUI_Increment(void){
 void PGUI_Exit(void){
     exit(EXIT_SUCCESS);
 }
+
+void* PGUI_Sum(std::vector<void*> args){
+    int sum = 0;
+
+    for(auto arg : args){
+        sum += *(int*)arg;
+    }
+
+    int* result = new int(sum); /* Memory need to be allocated */
+    std::printf("%d\n", *(int*)(result));
+    return (void*)result;
+}

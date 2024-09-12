@@ -1,5 +1,4 @@
 #include "SDL.h"
-#include "SDL_rect.h"
 #include <iostream>
 
 #ifndef __PGUI_PRIMITIVES_H__
@@ -20,7 +19,5 @@ typedef struct PGUI_background{
     SDL_Surface* surface;
     SDL_Texture* texture;
 }PGUI_Background;
-
-typedef void (*PGUI_ButtonAction)();
 
 #endif

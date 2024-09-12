@@ -1,4 +1,6 @@
 #include <iostream> /* TODO: Make it so that we can input any function with any type and number of parameters */
+#include <vector> 
+#include "pgui_action.hpp"
 
 #ifndef __PGUI_CALL_H__
 /**
@@ -20,5 +22,14 @@ void PGUI_Increment(void);
  * @brief Forces an exit
  */
 void PGUI_Exit(void);
+
+/**
+ * @brief adds up two numbers
+ * 
+ * @param args arguments and number of arguments
+ * 
+ * @returns a pointer to the sum
+ */
+void* PGUI_Sum(std::vector<void*> args);
 
 #endif

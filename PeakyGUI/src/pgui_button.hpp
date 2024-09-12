@@ -1,12 +1,13 @@
 #include "pgui_primitives.hpp"
 #include "pgui_component.hpp"
+#include "pgui_action.hpp"
 
 #ifndef __PGUI_BUTTON_H__
 #define __PGUI_BUTTON_H__
 
 typedef struct PGUI_button{
     PGUI_Component component;
-    PGUI_ButtonAction action;
+    PGUI_ActionArguments actionArgs;
 }PGUI_Button;
 
 /**
@@ -17,7 +18,7 @@ typedef struct PGUI_button{
  * 
  * @returns the created button
  */
-PGUI_Button PGUI_CreateButton(PGUI_ButtonAction action, PGUI_component component);
+PGUI_Button PGUI_CreateButton(PGUI_ActionArguments action, PGUI_component component);
 
 /**
  * @brief Creates a PGUI button, better writing
@@ -30,7 +31,7 @@ PGUI_Button PGUI_CreateButton(PGUI_ButtonAction action, PGUI_component component
  * 
  * @returns the created button
  */
-PGUI_Button PGUI_CreateButtonComplete(PGUI_ButtonAction action, int x, int y, SDL_Surface* buttonImage, SDL_Renderer* rnd);
+PGUI_Button PGUI_CreateButtonComplete(PGUI_ActionArguments action, int x, int y, SDL_Surface* buttonImage, SDL_Renderer* rnd);
 
 /**
  * @brief Checks if a specific PGUI button is pressed
