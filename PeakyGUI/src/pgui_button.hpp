@@ -34,6 +34,20 @@ PGUI_Button PGUI_CreateButton(PGUI_ActionArguments action, PGUI_component compon
 PGUI_Button PGUI_CreateButtonComplete(PGUI_ActionArguments action, int x, int y, SDL_Surface* buttonImage, SDL_Renderer* rnd);
 
 /**
+ * @brief Wrapper function for creating buttons
+ * 
+ * @param args arguments
+ * @note action function to call when the button is pressed
+ * @note x x axis
+ * @note y y axis
+ * @note buttonImage button's image
+ * @note rnd renderer
+ * 
+ * @returns pointer to the created button
+ */
+void* PGUI_CreateButtonWrapper(std::vector<void*> args);
+
+/**
  * @brief Checks if a specific PGUI button is pressed
  * 
  * @param button button to check

@@ -5,9 +5,21 @@ void PGUI_DebugPrint(void){
     return;
 }
 
+void* PGUI_DebugWrapper(std::vector<void*> args){
+    std::printf("PGUI function called\n");
+    return NULL;
+}
+
 void PGUI_Increment(void){
     static int c = 0;
     std::printf("count: %d\n", c++);
+    return;
+}
+
+void* PGUI_IncrementWrapper(std::vector<void*> args){
+    static int i = 0;
+    std::printf("%d\n", i++);
+    return NULL;
 }
 
 void PGUI_Exit(void){

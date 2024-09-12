@@ -4,7 +4,8 @@
 
 #ifndef __PGUI_CALL_H__
 /**
- * @attention ONLY FUNCTIONS: VOID FOO(VOID) CAN BE USED FOR NOW
+ * @attention We need to create wrapper functions in order to call them from a PGUI_button
+ *  void* foo(std::vector<void*> args); //Explicitly functions like his
  */
 #define __PGUI_CALL_H__
 
@@ -14,9 +15,27 @@
 void PGUI_DebugPrint(void);
 
 /**
+ * @brief A debug print for button presses
+ * 
+ * @param args arguments ({ })
+ * 
+ * @returns NULL
+ */
+void* PGUI_DebugWrapper(std::vector<void*> args);
+
+/**
  * @brief increments a static count
  */
 void PGUI_Increment(void);
+
+/**
+ * @brief increments a static count
+ * 
+ * @param args arguments ({ })
+ * 
+ * @returns NULL
+ */
+void* PGUI_IncrementWrapper(std::vector<void*> args);
 
 /**
  * @brief Forces an exit

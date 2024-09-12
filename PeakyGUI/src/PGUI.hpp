@@ -8,5 +8,6 @@
 #include "pgui_draw.hpp"
 #include "pgui_item.hpp"
 #include "pgui_event.hpp"
+#include "pgui_action.hpp"
 
 #endif

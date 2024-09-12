@@ -16,6 +16,18 @@ PGUI_Button PGUI_CreateButtonComplete(PGUI_ActionArguments actionArgs, int x, in
     return PGUI_CreateButton(actionArgs, cmp);
 }
 
+void* PGUI_CreateButtonWrapper(std::vector<void*> args){
+    int x = reinterpret_cast<int>(args[1]); 
+    int y = reinterpret_cast<int>(args[2]);
+    SDL_Surface* buttonImage = static_cast<SDL_Surface*>(args[3]);
+    SDL_Renderer* rnd = static_cast<SDL_Renderer*>(args[4]);
+
+    // Create PGUI_Button using the complete function
+    PGUI_Button* button = new PGUI_Button(PGUI_CreateButtonComplete(
+        { nullptr, args, 0 }, x, y, buttonImage, rnd
+    ));
+}
+
 PGUI_Bool PGUI_ButtonPressed(PGUI_Button button, int x, int y){
     if((x > button.component.rect.x &&
     y > button.component.rect.y &&
@@ -29,7 +41,8 @@ PGUI_Bool PGUI_ButtonPressed(PGUI_Button button, int x, int y){
 
 void PGUI_ExecuteButtonAction(PGUI_button button){
     if(button.actionArgs.action != NULL){
-        button.actionArgs.action(button.actionArgs.arguments);
+        void* result = button.actionArgs.action(button.actionArgs.arguments);
+        if(result == NULL){std::printf("Button action result returned NULL\n");}
     }else{
         printf("Execute Call\n");
     }

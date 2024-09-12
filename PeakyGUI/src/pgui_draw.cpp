@@ -1,5 +1,25 @@
 #include "pgui_draw.hpp"
 
+const char* PGUI_AssetPath = "PeakyGUI/assets/";
+
+SDL_Surface* PGUI_Load(const char* fname){
+    size_t pathLength = strlen(PGUI_AssetPath) + strlen(fname) + 1;
+    char* fullPath = new char[pathLength];
+
+    /* Construct the path */
+    snprintf(fullPath, pathLength, "%s%s", PGUI_AssetPath, fname);
+
+    SDL_Surface* surface = IMG_Load(fullPath);
+    
+    /* Check for errors */
+    if(surface == nullptr){
+        std::cerr << "Error loading image: " << IMG_GetError() << std::endl;
+    }
+
+    delete[] fullPath;
+    return surface;
+ }
+
 void PGUI_DrawComponent(PGUI_Component comp, SDL_Renderer* rnd){
     SDL_RenderCopy(rnd, comp.background.texture, NULL, &comp.rect);
     return;
