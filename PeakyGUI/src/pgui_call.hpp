@@ -1,6 +1,9 @@
-#include <iostream>
+#include <iostream> /* TODO: Make it so that we can input any function with any type and number of parameters */
 
 #ifndef __PGUI_CALL_H__
+/**
+ * @attention ONLY FUNCTIONS: VOID FOO(VOID) CAN BE USED FOR NOW
+ */
 #define __PGUI_CALL_H__
 
 /**

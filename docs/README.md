@@ -56,7 +56,7 @@ The UI's structure goes like this
     /* This syntax is valid */
     PGUI_Item leftBarItem = PGUI_CreateItem(leftBarCmp, {butt1, butt2, butt3});
     /* This is also valid */
-    PGUI_Item Item = PGUI_CreateItem(Item, butt1);
+    PGUI_Item Item = PGUI_CreateItem(ItemCmp, { butt1 });
     /* We can think of the Item.itemComponent as a background for the item's buttons (Item.itemButtons) */
 ```
 ### Events and Rendering
@@ -91,23 +91,23 @@ The UI's structure goes like this
     /* The handle event function should look like this */
 
     void handle_events(bool& quit){
-    SDL_Event e;
+        SDL_Event e;
 
-    while(SDL_PollEvent(&e)){
-        if(e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && (e.key.keysym.sym == SDLK_ESCAPE || e.key.keysym.sym == SDLK_e))){
-            quit = true;
-        }
-        if(e.type == SDL_MOUSEBUTTONDOWN){
-            if(e.button.button == SDL_BUTTON_LEFT){
-                /* Check for button interactions */
-                SDL_GetMouseState(&mouse_x, &mouse_y);
-                PGUI_EventCycle(mouse_x, mouse_y);
+        while(SDL_PollEvent(&e)){
+            if(e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && (e.key.keysym.sym == SDLK_ESCAPE || e.key.keysym.sym == SDLK_e))){
+                quit = true;
+            }
+            if(e.type == SDL_MOUSEBUTTONDOWN){
+                if(e.button.button == SDL_BUTTON_LEFT){
+                    /* Check for button interactions */
+                    SDL_GetMouseState(&mouse_x, &mouse_y);
+                    PGUI_EventCycle(mouse_x, mouse_y);
+                }
             }
         }
-    }
 
-    return;
-}
+        return;
+    }
 
 /* Most code here is SDL2 exclusive, we only need to focus on the 1 line regarding the function PGUI_EventCycle */
 void PGUI_EventCycle(int x, int y){
@@ -139,3 +139,7 @@ It is important to note that the functions that can be registered as a PGUI_Acti
 ## Assets
 
 There are currently no official PGUI assets, they will be added later into the module.
+
+## TODOS
+
+It is important to add the capability to pass as parameters functions (for button actions), so that we can be able to call any function with any number and type of arguments, by pressing a button.

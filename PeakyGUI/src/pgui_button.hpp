@@ -10,7 +10,7 @@ typedef struct PGUI_button{
 }PGUI_Button;
 
 /**
- * @brief Creats a PGUI button
+ * @brief Creates a PGUI button
  * 
  * @param action function to call when the button is pressed
  * @param component button's components for rendering
@@ -18,6 +18,19 @@ typedef struct PGUI_button{
  * @returns the created button
  */
 PGUI_Button PGUI_CreateButton(PGUI_ButtonAction action, PGUI_component component);
+
+/**
+ * @brief Creates a PGUI button, better writing
+ * 
+ * @param action function to call when the button is pressed
+ * @param x x axis
+ * @param y y axis
+ * @param buttonImage button's image
+ * @param rnd renderer
+ * 
+ * @returns the created button
+ */
+PGUI_Button PGUI_CreateButtonComplete(PGUI_ButtonAction action, int x, int y, SDL_Surface* buttonImage, SDL_Renderer* rnd);
 
 /**
  * @brief Checks if a specific PGUI button is pressed

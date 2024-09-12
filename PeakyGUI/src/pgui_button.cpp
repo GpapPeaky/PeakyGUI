@@ -11,6 +11,12 @@ PGUI_Button PGUI_CreateButton(PGUI_ButtonAction action, PGUI_component component
     return new_button;
 }
 
+PGUI_Button PGUI_CreateButtonComplete(PGUI_ButtonAction action, int x, int y, SDL_Surface* buttonImage, SDL_Renderer* rnd){
+    PGUI_Component cmp = PGUI_CreateComponent(x, y, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, buttonImage, rnd);
+
+    return PGUI_CreateButton(action, cmp);
+}
+
 PGUI_Bool PGUI_ButtonPressed(PGUI_Button button, int x, int y){
     if((x > button.component.rect.x &&
     y > button.component.rect.y &&
