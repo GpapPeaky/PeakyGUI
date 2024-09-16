@@ -42,7 +42,6 @@ PGUI_Bool PGUI_ButtonPressed(PGUI_Button button, int x, int y){
 void PGUI_ExecuteButtonAction(PGUI_button button){
     if(button.actionArgs.action != NULL){
         void* result = button.actionArgs.action(button.actionArgs.arguments);
-        if(result == NULL){std::printf("Button action result returned NULL\n");}
     }else{
         printf("Execute Call\n");
     }
