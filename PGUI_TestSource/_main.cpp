@@ -6,6 +6,8 @@ int main(int argc, char* argv[]){
 
     bool quit = false;
 
+    /* TODO: Revise and refactor the following instructions to be much simpler */
+
     /* Important to do like this */
     int val1 = 45;
     int val2 = 277;
