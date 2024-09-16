@@ -50,15 +50,7 @@ void* PGUI_CreateItemWrapper(std::vector<void*> args){
 void PGUI_DestroyItem(PGUI_Item item){
     auto it = PGUI_GlobalItems.find(item.ID);
     if(it != PGUI_GlobalItems.end()){
-
-        if(item.itemComponent.background.texture){
-            SDL_DestroyTexture(item.itemComponent.background.texture);
-        }
-        if(item.itemComponent.background.surface){
-            SDL_FreeSurface(item.itemComponent.background.surface);
-        }
         item.itemButtons.clear(); /* delete all buttons */
-
         /* Remove the item from the map */
         PGUI_GlobalItems.erase(it);
         PGUI_ItemCount--; /* Decrement the count */
@@ -73,16 +65,7 @@ void PGUI_DestroyItemByID(Uint itemID){
     auto it = PGUI_GlobalItems.find(itemID);
     if(it != PGUI_GlobalItems.end()){
         PGUI_Item& foundItem = it->second;
-        if(foundItem.itemComponent.background.texture){
-            SDL_DestroyTexture(foundItem.itemComponent.background.texture);
-            foundItem.itemComponent.background.texture = NULL;
-        }
-        if(foundItem.itemComponent.background.surface){
-            SDL_FreeSurface(foundItem.itemComponent.background.surface);
-            foundItem.itemComponent.background.surface = NULL;
-        }
         foundItem.itemButtons.clear(); /* delete all buttons */
-
         /* Remove the item from the map */
         PGUI_GlobalItems.erase(it);
         PGUI_ItemCount--; /* Decrement the count */

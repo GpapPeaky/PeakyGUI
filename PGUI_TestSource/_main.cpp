@@ -30,7 +30,7 @@ int main(int argc, char* argv[]){
 
     std::vector<void*> arg;
     int itemId = 1;
-    arg.push_back(&itemId);
+    arg.push_back(&itemId); /* We need to specify the ID each time */
 
     PGUI_Item createdItem;
 
