@@ -26,12 +26,20 @@ int main(int argc, char* argv[]){
     args.push_back(&item_y);
     args.push_back(PGUI_Load("bar.png"));
     args.push_back(rnd);
-    args.push_back(static_cast<void*>(&buttons)); // Pass the vector of buttons
+    args.push_back(static_cast<void*>(&buttons)); /* Push a vector of buttons */
+
+    std::vector<void*> arg;
+    int itemId = 1;
+    arg.push_back(&itemId);
+
+    PGUI_Item createdItem;
 
     PGUI_ActionArguments newItemArguments = {PGUI_CreateItemWrapper, args, 0};
     PGUI_Button newItemButton = PGUI_CreateButtonComplete(newItemArguments, 1700, 0, PGUI_Load("dbg.png"), rnd);
+    PGUI_ActionArguments destroyButtonArguments {PGUI_DestroyItemByIDWrapper, arg, 0};
+    PGUI_Button destroyItemButton = PGUI_CreateButtonComplete(destroyButtonArguments, 1200, 0, PGUI_Load("shieldFrame.png"), rnd);
 
-    PGUI_CreateItemComplete(0, 0, PGUI_Load("prov_bar.png"), rnd, { newItemButton });
+    PGUI_CreateItemComplete(0, 0, PGUI_Load("prov_bar.png"), rnd, { newItemButton, destroyItemButton });
 
     while(!quit){
         /* Updates to assets / sprites */

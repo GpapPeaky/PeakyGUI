@@ -1,9 +1,11 @@
 #include "SDL.h"
+#include "PGUI_module.hpp"
 #include <iostream>
 
 #ifndef __PGUI_PRIMITIVES_H__
 #define __PGUI_PRIMITIVES_H__
 
+typedef unsigned int Uint;
 typedef bool PGUI_Bool;
 #define PGUI_IsButton true
 #define PGUI_IsNotButton false

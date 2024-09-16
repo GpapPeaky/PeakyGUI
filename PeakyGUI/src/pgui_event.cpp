@@ -5,7 +5,7 @@ void PGUI_EventCycle(int x, int y){
         PGUI_Item& item = it->second;
         
         for(auto butt : item.itemButtons){
-            if(PGUI_ButtonPressed(butt, x, y) == PGUI_True){
+            if(PGUI_ButtonPressed(butt, x, y) == PGUI_True && item.visibility == PGUI_True){
                 PGUI_ExecuteButtonAction(butt);
             }
         }
