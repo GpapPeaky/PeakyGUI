@@ -4,25 +4,31 @@
 #include <vector>
 
 #ifndef __PGUI_ITEM_H__ 
+/**
+ * @note Items are dynamically allocated ,instead of the buttons which are simply
+ *      saved inside a vector field. (Alloc via 'new', dealloc via 'delete')
+ */
 #define __PGUI_ITEM_H__
 
 typedef struct PGUI_item{
     PGUI_Component itemComponent; /* Adds the background */
-    std::vector<PGUI_Button> itemButtons; /* Can be empty if the item has no buttons */
+    std::vector<PGUI_Button*> itemButtons; /* Can be empty if the item has no buttons */
     int visibility;
     Uint ID;
 }PGUI_Item;
 
 extern int PGUI_ItemCount;
-extern std::unordered_map<int, PGUI_Item> PGUI_GlobalItems;
+extern std::unordered_map<int, PGUI_Item*> PGUI_GlobalItems;
 
 /**
  * @brief Creates a new item
  * 
  * @param itemComponent component for background
  * @param buttons item's buttons
+ * 
+ * @returns a pointer to the created item
  */
-PGUI_Item PGUI_CreateItem(PGUI_Component itemComponent, std::vector<PGUI_Button> buttons);
+PGUI_Item* PGUI_CreateItem(PGUI_Component itemComponent, std::vector<PGUI_Button*> buttons);
 
 /**
  * @brief Creates a new item, better writing
@@ -32,8 +38,10 @@ PGUI_Item PGUI_CreateItem(PGUI_Component itemComponent, std::vector<PGUI_Button>
  * @param itemBackground background surface
  * @param rnd renderer
  * @param buttons item's buttons
+ * 
+ * @returns a pointer to the created item
  */
-PGUI_Item PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SDL_Renderer* rnd, std::vector<PGUI_Button> buttons);
+PGUI_Item* PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SDL_Renderer* rnd, std::vector<PGUI_Button*> buttons);
 
 /**
  * @brief Creates a new item, better writing

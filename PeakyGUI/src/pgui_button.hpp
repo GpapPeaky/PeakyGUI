@@ -16,9 +16,9 @@ typedef struct PGUI_button{
  * @param action function to call when the button is pressed
  * @param component button's components for rendering
  * 
- * @returns the created button
+ * @returns a pointer to the created button
  */
-PGUI_Button PGUI_CreateButton(PGUI_ActionArguments action, PGUI_component component);
+PGUI_Button* PGUI_CreateButton(PGUI_ActionArguments action, PGUI_component component);
 
 /**
  * @brief Creates a PGUI button, better writing
@@ -29,9 +29,9 @@ PGUI_Button PGUI_CreateButton(PGUI_ActionArguments action, PGUI_component compon
  * @param buttonImage button's image
  * @param rnd renderer
  * 
- * @returns the created button
+ * @returns a pointer to the created button
  */
-PGUI_Button PGUI_CreateButtonComplete(PGUI_ActionArguments action, int x, int y, SDL_Surface* buttonImage, SDL_Renderer* rnd);
+PGUI_Button* PGUI_CreateButtonComplete(PGUI_ActionArguments action, int x, int y, SDL_Surface* buttonImage, SDL_Renderer* rnd);
 
 /**
  * @brief Wrapper function for creating buttons
@@ -43,7 +43,7 @@ PGUI_Button PGUI_CreateButtonComplete(PGUI_ActionArguments action, int x, int y,
  * @note buttonImage button's image
  * @note rnd renderer
  * 
- * @returns pointer to the created button
+ * @returns a pointer to the created button
  */
 void* PGUI_CreateButtonWrapper(std::vector<void*> args);
 
@@ -64,5 +64,12 @@ PGUI_Bool PGUI_ButtonPressed(PGUI_Button button, int x, int y);
  * @param button button to execute the action allocated
  */
 void PGUI_ExecuteButtonAction(PGUI_Button button);
+
+/**
+ * @brief Deletes a specified button
+ * 
+ * @param button button to delete
+ */
+void PGUI_DeleteButton(PGUI_Button* button);
 
 #endif

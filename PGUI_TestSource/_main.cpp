@@ -6,7 +6,7 @@ int main(int argc, char* argv[]){
 
     bool quit = false;
 
-    /* TODO: Revise and refactor the following instructions to be much simpler */
+    /* TODO: Revise and refactor the following instructions to be much simpler, for creating buttons that create items */
 
     /* Important to do like this */
     int val1 = 45;
@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
 
     /* We pass the wrapper function, its' arguments and the number of arguments, if required as PGUI_ActionArguments */
     PGUI_ActionArguments incArgs = {PGUI_IncrementWrapper, {}, 0};
-    std::vector<PGUI_Button> buttons;
+    std::vector<PGUI_Button*> buttons;
     buttons.push_back(PGUI_CreateButtonComplete(incArgs, 1600, 400, PGUI_Load("inc.png"), rnd));
     buttons.push_back(PGUI_CreateButtonComplete(incArgs, 1200, 400, PGUI_Load("inc.png"), rnd));
 
@@ -30,14 +30,14 @@ int main(int argc, char* argv[]){
 
     std::vector<void*> arg;
     int itemId = 1;
-    arg.push_back(&itemId); /* We need to specify the ID each time */
+    arg.push_back(&itemId); /* We need to specify the ID each time, for what to delete */
 
     PGUI_Item createdItem;
 
     PGUI_ActionArguments newItemArguments = {PGUI_CreateItemWrapper, args, 0};
-    PGUI_Button newItemButton = PGUI_CreateButtonComplete(newItemArguments, 1700, 0, PGUI_Load("dbg.png"), rnd);
+    PGUI_Button* newItemButton = PGUI_CreateButtonComplete(newItemArguments, 1700, 0, PGUI_Load("dbg.png"), rnd);
     PGUI_ActionArguments destroyButtonArguments {PGUI_DestroyItemByIDWrapper, arg, 0};
-    PGUI_Button destroyItemButton = PGUI_CreateButtonComplete(destroyButtonArguments, 1200, 0, PGUI_Load("shieldFrame.png"), rnd);
+    PGUI_Button* destroyItemButton = PGUI_CreateButtonComplete(destroyButtonArguments, 1200, 0, PGUI_Load("shieldFrame.png"), rnd);
 
     PGUI_CreateItemComplete(0, 0, PGUI_Load("prov_bar.png"), rnd, { newItemButton, destroyItemButton });
 

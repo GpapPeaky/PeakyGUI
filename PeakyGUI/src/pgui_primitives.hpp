@@ -1,6 +1,7 @@
 #include "SDL.h"
 #include "PGUI_module.hpp"
 #include <iostream>
+#include <exception>
 
 #ifndef __PGUI_PRIMITIVES_H__
 #define __PGUI_PRIMITIVES_H__
