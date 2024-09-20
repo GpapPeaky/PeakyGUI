@@ -15,7 +15,7 @@ PGUI_Item* PGUI_CreateItem(PGUI_Component component, std::vector<PGUI_Button*> b
     PGUI_GlobalItems[PGUI_ItemCount++] = new_item; /* Pass the item onto the map */
 
     #ifdef PGUI_DEBUG
-        std::printf("Button with ID %d created and passed\n", new_item->ID);
+        std::printf("Item with ID %d created and passed\n", new_item->ID);
     #endif /* PGUI_DEBUG */
 
     return new_item;
@@ -59,10 +59,10 @@ void PGUI_DestroyItemByID(Uint itemID){
     if(it != PGUI_GlobalItems.end()){
         PGUI_Item* foundItem = it->second;
         
-        /* Clear the buttons vector */
-        foundItem->itemButtons.clear();
         /* Erase from the map */
         PGUI_GlobalItems.erase(it);
+        /* Clear the vector */
+        foundItem->itemButtons.clear();
 
         if(foundItem->itemComponent.background.surface != NULL){
             SDL_FreeSurface(foundItem->itemComponent.background.surface);
@@ -75,14 +75,16 @@ void PGUI_DestroyItemByID(Uint itemID){
         for(PGUI_Button* itemButton : foundItem->itemButtons){
             PGUI_DeleteButton(itemButton);
         }
-        /* Clear the vector */
-        foundItem->itemButtons.clear();
         /* Dealloc memory */
         if(foundItem != NULL){ delete foundItem; }
         /* Decrement the item count */
-        PGUI_ItemCount--; /* Decrement the count */
+        #ifdef PGUI_DEBUG
+            std::printf("Item with ID %d destroyed\n", foundItem->ID);
+        #endif /* PGUI_DEBUG */
     }else{
-        std::printf("Item destruction failed\n");
+        #ifdef PGUI_DEBUG
+            std::printf("Item with ID %d couldn't be destroyed\n", itemID);
+        #endif /* PGUI_DEBUG */
     }
 
     return;
