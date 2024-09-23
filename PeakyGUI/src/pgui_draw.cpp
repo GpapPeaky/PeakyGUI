@@ -45,7 +45,9 @@ void PGUI_DrawItems(SDL_Renderer* rnd){
     for(auto it = PGUI_GlobalItems.begin() ; it != PGUI_GlobalItems.end() ; ++it){
         PGUI_Item* item = it->second;
         
-        PGUI_DrawItem(*item, rnd);
+        if(item->visibility == PGUI_True){
+                PGUI_DrawItem(*item, rnd); /* If visible show it */
+        }
     }
 
     return;

@@ -21,10 +21,13 @@ PGUI_Item* PGUI_CreateItem(PGUI_Component component, std::vector<PGUI_Button*> b
     return new_item;
 }
 
-PGUI_Item* PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SDL_Renderer* rnd, std::vector<PGUI_Button*> buttons){
+PGUI_Item* PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SDL_Renderer* rnd, std::vector<PGUI_Button*> buttons, PGUI_Bool visibility){
     PGUI_Component cmp = PGUI_CreateComponent(x, y, PGUI_UNDECIDED_VALUE, PGUI_UNDECIDED_VALUE, itemBackground, rnd);
 
-    return PGUI_CreateItem(cmp, buttons);
+    PGUI_Item* item = PGUI_CreateItem(cmp, buttons);
+    item->visibility = visibility;
+
+    return item;
 }
 
 void* PGUI_CreateItemWrapper(std::vector<void*> args){
@@ -41,8 +44,9 @@ void* PGUI_CreateItemWrapper(std::vector<void*> args){
         return nullptr;
     }
     std::vector<PGUI_Button*>* buttons = static_cast<std::vector<PGUI_Button*>*>(args[4]);
+    int visibility = *static_cast<int*>(args[5]);
 
-    PGUI_Item* newItem = PGUI_CreateItemComplete(x, y, buttonImage, rnd, { *buttons });
+    PGUI_Item* newItem = PGUI_CreateItemComplete(x, y, buttonImage, rnd, { *buttons }, visibility);
     newItem->visibility = PGUI_False; /* Not visible at first */
 
     return static_cast<void*>(&PGUI_GlobalItems[PGUI_ItemCount - 1]);
@@ -98,6 +102,58 @@ void* PGUI_DestroyItemWrapper(std::vector<void*> args){
 
 void* PGUI_DestroyItemByIDWrapper(std::vector<void*> args){
     PGUI_DestroyItemByID(*static_cast<Uint*>(args[0]));
+
+    return NULL;
+}
+
+/* Instead of allocating a deallocating memory we will simply change it's visibility */
+
+void PGUI_MakeItemVisible(PGUI_Item* item){
+    item->visibility = PGUI_True; /* Change of visibility */
+    
+    return;
+}
+
+void* PGUI_MakeItemVisibleWrapper(std::vector<void*> args){
+    PGUI_Item* item= static_cast<PGUI_Item*>(args[0]);
+
+    PGUI_MakeItemVisible(item);
+
+    return NULL;
+}
+
+void PGUI_MakeItemInvisible(PGUI_Item* item){
+    item->visibility = PGUI_False;
+
+    return;
+}
+
+void* PGUI_MakeItemInvisibleWrapper(std::vector<void*> args){
+    PGUI_Item* item = static_cast<PGUI_Item*>(args[0]);
+
+    PGUI_MakeItemInvisible(item);
+
+    return NULL;
+}
+
+void PGUI_ItemVisibilitySwitch(PGUI_Item* item){
+    switch(item->visibility){
+        case PGUI_True: /* Visible */
+            PGUI_MakeItemInvisible(item);
+            break;
+        
+        case PGUI_False:
+            PGUI_MakeItemVisible(item);
+            break;
+        }
+
+    return;
+}
+
+void* PGUI_ItemVisibilitySwitchWrapper(std::vector<void*> args){
+    PGUI_Item* item = static_cast<PGUI_Item*>(args[0]);
+
+    PGUI_ItemVisibilitySwitch(item);
 
     return NULL;
 }

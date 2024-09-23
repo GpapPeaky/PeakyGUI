@@ -13,7 +13,7 @@
 typedef struct PGUI_item{
     PGUI_Component itemComponent; /* Adds the background */
     std::vector<PGUI_Button*> itemButtons; /* Can be empty if the item has no buttons */
-    int visibility;
+    PGUI_Bool visibility;
     Uint ID;
 }PGUI_Item;
 
@@ -38,10 +38,11 @@ PGUI_Item* PGUI_CreateItem(PGUI_Component itemComponent, std::vector<PGUI_Button
  * @param itemBackground background surface
  * @param rnd renderer
  * @param buttons item's buttons
+ * @param visibility visibility
  * 
  * @returns a pointer to the created item
  */
-PGUI_Item* PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SDL_Renderer* rnd, std::vector<PGUI_Button*> buttons);
+PGUI_Item* PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SDL_Renderer* rnd, std::vector<PGUI_Button*> buttons, PGUI_Bool visibility);
 
 /**
  * @brief Creates a new item, better writing
@@ -92,5 +93,58 @@ void* PGUI_DestroyItemWrapper(std::vector<void*> args);
  * @returns NULL
  */
 void* PGUI_DestroyItemByIDWrapper(std::vector<void*> args);
+
+/* Instead of allocating a deallocating memory we will simply change it's visibility */
+
+/**
+ * @brief Makes the specified item visible
+ * 
+ * @param item item to make visible
+ */
+void PGUI_MakeItemVisible(PGUI_Item* item);
+
+/**
+ * @brief Makes the specified item visible
+ * 
+ * @param args arguments
+ * @note item to make visible
+ * 
+ * @returns NULL
+ */
+void* PGUI_MakeItemVisibleWrapper(std::vector<void*> args);
+
+/**
+ * @brief Makes the specified item invisible
+ * 
+ * @param item item to make invisible
+ */
+void PGUI_MakeItemInvisible(PGUI_Item* item);
+
+/**
+ * @brief Makes the specified item invisible
+ * 
+ * @param args arguments
+ * @note item to make invisible
+ * 
+ * @returns NULL
+ */
+void* PGUI_MakeItemInvisibleWrapper(std::vector<void*> args);
+
+/**
+ * @brief Makes an item visible if invisible and invisible if visible
+ * 
+ * @param item item to switch visibility of
+ */
+void PGUI_ItemVisibilitySwitch(PGUI_Item* item);
+
+/**
+ * @brief Makes an item visible if invisible and invisible if visible
+ * 
+ * @param args arguments
+ * @note item to switch visibility of
+ * 
+ * @returns NULL
+ */
+void* PGUI_ItemVisibilitySwitchWrapper(std::vector<void*> args);
 
 #endif
