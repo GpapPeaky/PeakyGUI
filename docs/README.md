@@ -140,6 +140,8 @@ It is important to note that the functions that can be registered as a PGUI_Acti
 
 There are currently no official PGUI assets, they will be added later into the module.
 
-## TODOS
+## TODO
 
 It is important to add the capability to pass as parameters functions (for button actions), so that we can be able to call any function with any number and type of arguments, by pressing a button.
+
+Rewrite the documentation
