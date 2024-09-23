@@ -30,7 +30,7 @@ PGUI_Item* PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SD
     return item;
 }
 
-void* PGUI_CreateItemWrapper(std::vector<void*> args){
+void* PGUI_CreateItemWrapper(PGUI_ArgumentVector args){
     int x = *static_cast<int*>(args[0]); 
     int y = *static_cast<int*>(args[1]);
     SDL_Surface* buttonImage = static_cast<SDL_Surface*>(args[2]);
@@ -65,8 +65,6 @@ void PGUI_DestroyItemByID(Uint itemID){
         
         /* Erase from the map */
         PGUI_GlobalItems.erase(it);
-        /* Clear the vector */
-        foundItem->itemButtons.clear();
 
         if(foundItem->itemComponent.background.surface != NULL){
             SDL_FreeSurface(foundItem->itemComponent.background.surface);
@@ -79,9 +77,12 @@ void PGUI_DestroyItemByID(Uint itemID){
         for(PGUI_Button* itemButton : foundItem->itemButtons){
             PGUI_DeleteButton(itemButton);
         }
+        /* Clear the vector */
+        foundItem->itemButtons.clear();
+
         /* Dealloc memory */
         if(foundItem != NULL){ delete foundItem; }
-        /* Decrement the item count */
+
         #ifdef PGUI_DEBUG
             std::printf("Item with ID %d destroyed\n", foundItem->ID);
         #endif /* PGUI_DEBUG */
@@ -94,13 +95,13 @@ void PGUI_DestroyItemByID(Uint itemID){
     return;
 }
 
-void* PGUI_DestroyItemWrapper(std::vector<void*> args){
+void* PGUI_DestroyItemWrapper(PGUI_ArgumentVector args){
     PGUI_DestroyItem(*static_cast<PGUI_Item*>(args[0]));
 
     return NULL;
 }
 
-void* PGUI_DestroyItemByIDWrapper(std::vector<void*> args){
+void* PGUI_DestroyItemByIDWrapper(PGUI_ArgumentVector args){
     PGUI_DestroyItemByID(*static_cast<Uint*>(args[0]));
 
     return NULL;
@@ -114,7 +115,7 @@ void PGUI_MakeItemVisible(PGUI_Item* item){
     return;
 }
 
-void* PGUI_MakeItemVisibleWrapper(std::vector<void*> args){
+void* PGUI_MakeItemVisibleWrapper(PGUI_ArgumentVector args){
     PGUI_Item* item= static_cast<PGUI_Item*>(args[0]);
 
     PGUI_MakeItemVisible(item);
@@ -128,7 +129,7 @@ void PGUI_MakeItemInvisible(PGUI_Item* item){
     return;
 }
 
-void* PGUI_MakeItemInvisibleWrapper(std::vector<void*> args){
+void* PGUI_MakeItemInvisibleWrapper(PGUI_ArgumentVector args){
     PGUI_Item* item = static_cast<PGUI_Item*>(args[0]);
 
     PGUI_MakeItemInvisible(item);
@@ -150,7 +151,7 @@ void PGUI_ItemVisibilitySwitch(PGUI_Item* item){
     return;
 }
 
-void* PGUI_ItemVisibilitySwitchWrapper(std::vector<void*> args){
+void* PGUI_ItemVisibilitySwitchWrapper(PGUI_ArgumentVector args){
     PGUI_Item* item = static_cast<PGUI_Item*>(args[0]);
 
     PGUI_ItemVisibilitySwitch(item);

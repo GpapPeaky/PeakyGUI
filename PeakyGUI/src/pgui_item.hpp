@@ -56,7 +56,7 @@ PGUI_Item* PGUI_CreateItemComplete(int x, int y, SDL_Surface* itemBackground, SD
  * 
  * @returns pointer to the created item
  */
-void* PGUI_CreateItemWrapper(std::vector<void*> args);
+void* PGUI_CreateItemWrapper(PGUI_ArgumentVector args);
 
 /**
  * @brief Destroys a specified item
@@ -82,7 +82,7 @@ void PGUI_DestroyItemByID(Uint itemID);
  * 
  * @returns NULL
  */
-void* PGUI_DestroyItemWrapper(std::vector<void*> args);
+void* PGUI_DestroyItemWrapper(PGUI_ArgumentVector args);
 
 /**
  * @brief Destroys a specified item by id
@@ -92,7 +92,7 @@ void* PGUI_DestroyItemWrapper(std::vector<void*> args);
  * 
  * @returns NULL
  */
-void* PGUI_DestroyItemByIDWrapper(std::vector<void*> args);
+void* PGUI_DestroyItemByIDWrapper(PGUI_ArgumentVector args);
 
 /* Instead of allocating a deallocating memory we will simply change it's visibility */
 
@@ -111,7 +111,7 @@ void PGUI_MakeItemVisible(PGUI_Item* item);
  * 
  * @returns NULL
  */
-void* PGUI_MakeItemVisibleWrapper(std::vector<void*> args);
+void* PGUI_MakeItemVisibleWrapper(PGUI_ArgumentVector args);
 
 /**
  * @brief Makes the specified item invisible
@@ -128,7 +128,7 @@ void PGUI_MakeItemInvisible(PGUI_Item* item);
  * 
  * @returns NULL
  */
-void* PGUI_MakeItemInvisibleWrapper(std::vector<void*> args);
+void* PGUI_MakeItemInvisibleWrapper(PGUI_ArgumentVector args);
 
 /**
  * @brief Makes an item visible if invisible and invisible if visible
@@ -145,6 +145,6 @@ void PGUI_ItemVisibilitySwitch(PGUI_Item* item);
  * 
  * @returns NULL
  */
-void* PGUI_ItemVisibilitySwitchWrapper(std::vector<void*> args);
+void* PGUI_ItemVisibilitySwitchWrapper(PGUI_ArgumentVector args);
 
 #endif

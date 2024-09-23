@@ -4,11 +4,12 @@
 #ifndef __PGUI_ACTION_H__
 #define __PGUI_ACTION_H__
 
-typedef void* (*PGUI_ButtonAction)(std::vector<void*> args); /* To be able to cast both the argmunets and the return value */
+typedef std::vector<void*> PGUI_ArgumentVector;
+typedef void* (*PGUI_ButtonAction)(PGUI_ArgumentVector args); /* To be able to cast both the argmunets and the return value */
 
 typedef struct PGUI_actionArguments{
     PGUI_ButtonAction action;
-    std::vector<void*> arguments;
+    PGUI_ArgumentVector arguments;
     int numOfArgs;
 }PGUI_ActionArguments;
 

@@ -45,7 +45,7 @@ PGUI_Button* PGUI_CreateButtonComplete(PGUI_ActionArguments action, int x, int y
  * 
  * @returns a pointer to the created button
  */
-void* PGUI_CreateButtonWrapper(std::vector<void*> args);
+void* PGUI_CreateButtonWrapper(PGUI_ArgumentVector args);
 
 /**
  * @brief Checks if a specific PGUI button is pressed

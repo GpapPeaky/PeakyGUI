@@ -15,7 +15,7 @@ PGUI_Button* PGUI_CreateButtonComplete(PGUI_ActionArguments actionArgs, int x, i
     return PGUI_CreateButton(actionArgs, cmp);
 }
 
-void* PGUI_CreateButtonWrapper(std::vector<void*> args){
+void* PGUI_CreateButtonWrapper(PGUI_ArgumentVector args){
     int x = reinterpret_cast<int>(args[1]); 
     int y = reinterpret_cast<int>(args[2]);
     SDL_Surface* buttonImage = static_cast<SDL_Surface*>(args[3]);

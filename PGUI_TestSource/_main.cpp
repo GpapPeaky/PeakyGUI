@@ -19,6 +19,12 @@ int main(int argc, char* argv[]){
     PGUI_Button* visibilityButton = PGUI_CreateButtonComplete(switchButtonArgs, 1000, 0, PGUI_Load("butt.png"), rnd);
     PGUI_CreateItemComplete(0, 0, PGUI_Load("leftbar.png"), rnd, { visibilityButton }, PGUI_True);
 
+    #ifdef PGUI_MEMDEALLOC
+        PGUI_Cleanup();
+        PGUI_MemoryCheck();
+        return PGUI_EXIT_SUCCESS;
+    #endif
+
     while(!quit){
         /* Updates to assets / sprites */
         handle_events(quit); /* Creates a new event to poll per call (Might need to be optTimised) */
@@ -31,6 +37,7 @@ int main(int argc, char* argv[]){
         SDL_RenderPresent(rnd);
     }
 
+    PGUI_Cleanup();
     SDL_DestroyRenderer(rnd);
     SDL_DestroyWindow(win);
     SDL_Quit();

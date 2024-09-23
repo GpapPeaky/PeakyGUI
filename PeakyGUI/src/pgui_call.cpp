@@ -5,7 +5,7 @@ void PGUI_DebugPrint(void){
     return;
 }
 
-void* PGUI_DebugWrapper(std::vector<void*> args){
+void* PGUI_DebugWrapper(PGUI_ArgumentVector args){
     std::printf("PGUI function called\n");
     return NULL;
 }
@@ -16,7 +16,7 @@ void PGUI_Increment(void){
     return;
 }
 
-void* PGUI_IncrementWrapper(std::vector<void*> args){
+void* PGUI_IncrementWrapper(PGUI_ArgumentVector args){
     static int i = 0;
     std::printf("%d\n", i++);
     return NULL;
@@ -26,7 +26,7 @@ void PGUI_Exit(void){
     exit(EXIT_SUCCESS);
 }
 
-void* PGUI_Sum(std::vector<void*> args){
+void* PGUI_Sum(PGUI_ArgumentVector args){
     int sum = 0;
 
     for(auto arg : args){
