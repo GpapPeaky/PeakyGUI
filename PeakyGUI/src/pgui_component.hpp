@@ -25,6 +25,11 @@ typedef struct PGUI_component{
 void PGUI_GetComponentAttributes(PGUI_Component component, int* x, int* y, int* w, int* h, PGUI_Background* background, PGUI_Bool* status);
 
 /**
+ * @brief See PGUI_GetComponentAttributes, it is a mere rename of that function
+ */
+void PGUI_QueryComponent(PGUI_component component, int* x, int* y, int* w, int* h, PGUI_Background* background, PGUI_Bool* status);
+
+/**
  * @brief Creates a new comonent
  * 
  * @param x x position

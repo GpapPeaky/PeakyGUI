@@ -5,7 +5,7 @@
 #ifndef __PGUI_CALL_H__
 /**
  * @attention We need to create wrapper functions in order to call them from a PGUI_button
- *  void* foo(PGUI_ArgumentVector args); //Explicitly functions like his
+ *  PGUI_Wrap foo(PGUI_ArgumentVector args); // Explicitly functions like his void* foo(std::vector<void*> agrs);
  */
 #define __PGUI_CALL_H__
 
@@ -21,7 +21,7 @@ void PGUI_DebugPrint(void);
  * 
  * @returns NULL
  */
-void* PGUI_DebugWrapper(PGUI_ArgumentVector args);
+PGUI_Wrap PGUI_DebugWrapper(PGUI_ArgumentVector args);
 
 /**
  * @brief increments a static count
@@ -35,7 +35,7 @@ void PGUI_Increment(void);
  * 
  * @returns NULL
  */
-void* PGUI_IncrementWrapper(PGUI_ArgumentVector args);
+PGUI_Wrap PGUI_IncrementWrapper(PGUI_ArgumentVector args);
 
 /**
  * @brief Forces an exit
@@ -49,6 +49,6 @@ void PGUI_Exit(void);
  * 
  * @returns a pointer to the sum
  */
-void* PGUI_Sum(PGUI_ArgumentVector args);
+PGUI_Wrap PGUI_Sum(PGUI_ArgumentVector args);
 
 #endif

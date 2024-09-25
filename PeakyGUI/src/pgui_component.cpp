@@ -11,6 +11,12 @@ void PGUI_GetComponentAttributes(PGUI_Component component, int* x, int* y, int* 
     return;
 }
 
+void PGUI_QueryComponent(PGUI_component component, int* x, int* y, int* w, int* h, PGUI_Background* background, PGUI_Bool* status){
+    PGUI_GetComponentAttributes(component, x, y, w, h, background, status);
+
+    return;
+}
+
 PGUI_Component PGUI_CreateComponent(int x, int y, int w, int h, SDL_Surface* surface, SDL_Renderer* rnd){
     PGUI_Component new_component;
     new_component.background.surface = surface;
