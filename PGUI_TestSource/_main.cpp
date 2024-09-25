@@ -42,5 +42,5 @@ int main(int argc, char* argv[]){
     SDL_DestroyWindow(win);
     SDL_Quit();
 
-    return 0;
+    return PGUI_EXIT_SUCCESS;
 }
