@@ -6,7 +6,6 @@ void PGUI_GetComponentAttributes(PGUI_Component component, int* x, int* y, int* 
     if(w) *w = component.rect.w;
     if(h) *h = component.rect.h;
     if(background) *background = component.background;
-    if(status) *status = component.status;
     
     return;
 }

@@ -4,7 +4,6 @@ PGUI_Button* PGUI_CreateButton(PGUI_ActionArguments actionArgs, PGUI_component c
     PGUI_Button* new_button = new PGUI_Button;
     new_button->actionArgs = actionArgs;
     new_button->component = component;
-    new_button->component.status = PGUI_IsButton;
 
     return new_button;
 }

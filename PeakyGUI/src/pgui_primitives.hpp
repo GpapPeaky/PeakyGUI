@@ -10,8 +10,8 @@ typedef unsigned int Uint;
 typedef bool PGUI_Bool;
 
 /* Redundant definitions */
-#define PGUI_IsButton true
-#define PGUI_IsNotButton false
+#define PGUI_SHOWN true
+#define PGUI_HIDDEN false
 
 #define PGUI_True true
 #define PGUI_False false

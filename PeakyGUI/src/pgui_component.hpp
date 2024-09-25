@@ -6,7 +6,6 @@
 typedef struct PGUI_component{
     PGUI_Rect rect;
     PGUI_Background background;
-    PGUI_Bool status;
 }PGUI_Component;
 
 #define PGUI_EMPTY_COMPONENT 1000

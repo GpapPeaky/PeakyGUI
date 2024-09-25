@@ -10,5 +10,6 @@
 #include "pgui_event.hpp"
 #include "pgui_action.hpp"
 #include "pgui_cleanup.hpp"
+#include "pgui_load.hpp"
 
 #endif
