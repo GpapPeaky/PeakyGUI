@@ -1,5 +1,6 @@
 #include "pgui_component.hpp"
 #include "pgui_button.hpp"
+#include "pgui_load.hpp"
 #include <unordered_map>
 #include <vector>
 
@@ -146,5 +147,19 @@ void PGUI_ItemVisibilitySwitch(PGUI_Item* item);
  * @returns NULL
  */
 PGUI_Wrap PGUI_ItemVisibilitySwitchWrapper(PGUI_ArgumentVector args);
+
+/**
+ * @brief Creates a button as an item (Item with buttons but no item background)
+ * 
+ * @param action button's action function
+ * @param x x axis
+ * @param y y axis
+ * @param buttonBackground button's background
+ * @param rnd renderer
+ * @param visibility visibility of item
+ * 
+ * @returns a pointer to the created item/button
+ */
+PGUI_Item* PGUI_CreateButtonAsItem(PGUI_ActionArguments action, int x, int y, SDL_Surface* buttonBackground, SDL_Renderer* rnd,  PGUI_Bool visibility);
 
 #endif
