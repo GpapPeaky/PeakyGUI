@@ -1,4 +1,4 @@
-#include "_includes.hpp" /* TODO: fix documentation */
+#include "_includes.hpp"
 
 int main(int argc, char* argv[]){
 

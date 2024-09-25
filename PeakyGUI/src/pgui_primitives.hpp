@@ -1,7 +1,8 @@
 #include "SDL.h"
 #include "PGUI_module.hpp"
 #include <iostream>
-#include <exception>
+
+/* TODO: Might add namespaces for more flexible c++ use */
 
 #ifndef __PGUI_PRIMITIVES_H__
 #define __PGUI_PRIMITIVES_H__
