@@ -9,6 +9,9 @@ typedef struct PGUI_component{
     PGUI_Bool status;
 }PGUI_Component;
 
+#define PGUI_EMPTY_COMPONENT 1000
+#define PGUI_LOAD_COMPONENT 0
+
 /**
  * @brief Gets the attributes of a component, by reference
  * 

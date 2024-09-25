@@ -3,9 +3,6 @@
 std::unordered_map<int, PGUI_Item*> PGUI_GlobalItems;
 int PGUI_ItemCount = 0;
 
-/* TODO: Make it so that when a new item is created via a button press, it is only created and destroyed once */
-/* TODO: Fix a crashing problem when pressing the creation button after deleting another, as well as the item background not being loaded, after being deleted */
-
 PGUI_Item* PGUI_CreateItem(PGUI_Component component, std::vector<PGUI_Button*> buttons){
     PGUI_Item* new_item = new PGUI_Item; /* Dynamic memory allocation */
     new_item->itemComponent = component;
