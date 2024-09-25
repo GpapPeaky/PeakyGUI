@@ -12,4 +12,6 @@
 #include "pgui_cleanup.hpp"
 #include "pgui_load.hpp"
 
+#include "PGUI_debug.hpp" /* Not necessary */
+
 #endif

@@ -1,5 +1,5 @@
 #include "SDL.h"
-#include "PGUI_module.hpp"
+#include "PGUI_debug.hpp"
 #include <iostream>
 
 /* TODO: Might add namespaces for more flexible c++ use */
