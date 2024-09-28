@@ -1,4 +1,5 @@
 #include "SDL.h"
+#include "SDL_image.h"
 #include "PGUI_debug.hpp"
 #include <iostream>
 
