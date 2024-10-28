@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
 
     PGUI_CreateButtonAsItem(incButtonArgs, 500, 500, PGUI_Load("inc.png"), rnd, PGUI_True); /* Faster approach to show just buttons as whole items */
 
-    /* Button that changes the visibility*/
+    /* Button that changes the visibility */
     PGUI_ActionArguments switchButtonArgs = { PGUI_ItemVisibilitySwitchWrapper, { switchItem }, 1};
     PGUI_Button* visibilityButton = PGUI_CreateButtonComplete(switchButtonArgs, 1000, 0, PGUI_Load("butt.png"), rnd);
     PGUI_CreateItemComplete(0, 0, PGUI_Load("leftbar.png"), rnd, { visibilityButton }, PGUI_True);
