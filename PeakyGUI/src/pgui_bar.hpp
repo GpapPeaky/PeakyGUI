@@ -43,4 +43,61 @@ typedef struct PGUI_floatBar{
 PGUI_IntBar* PGUI_CreateIntegerBar(PGUI_Component background, PGUI_Component foreground,\
 int max, int min, int rateOfChange, int* variable, int default);
 
+/**
+ * @brief Creates an integer bar
+ * 
+ * @param x X axis
+ * @param y Y axis
+ * @param marginSize Margin size for foreground bar
+ * @param background Background component surface
+ * @param foreground Foreground component surface
+ * @param min Minimum value
+ * @param max Maximum value
+ * @param rateOfChange rate of change per slide/click
+ * @param variable Uniform variable to change 
+ * @param default Default value of uniform
+ * @param rnd Renderer to use
+ * 
+ * @returns Pointer to the created bar Widget
+ */
+PGUI_IntBar* PGUI_CreateIntegerBarMargin(int x, int y, int marginSize, SDL_Surface* background,\
+SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int default);
+
+/**
+ * @brief Gets The attributres of an integer bar
+ * 
+ * @param integerBar Integer bar to get the attributes from
+ * @param backX Background x
+ * @param backY Background y
+ * @param foreX Foreground x
+ * @param foreY Foreground y
+ * @param min Minimum value
+ * @param max Maximum value
+ * @param rateOfChange Rate of change per click
+ */
+void PGUI_GetIntegerBarAttributes(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX, int* foreY, int* min, int* max,\
+int* rateOfChange);
+
+/**
+ * @brief Gets The attributres of an integer bar
+ * 
+ * @param integerBar Integer bar to get the attributes from
+ * @param backX Background x
+ * @param backY Background y
+ * @param foreX Foreground x
+ * @param foreY Foreground y
+ * @param min Minimum value
+ * @param max Maximum value
+ * @param rateOfChange Rate of change per click
+ */
+void PGUI_QueryIntegerBar(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX, int* foreY, int* min, int* max,\
+int* rateOfChange);
+
+/**
+ * @brief Print the attributes of a bar
+ * 
+ * @param bar Bar to print
+ */
+void PGUI_PrintIntegerBar(PGUI_IntBar bar);
+
 #endif
