@@ -1,5 +1,6 @@
 #include "pgui_component.hpp"
 #include "pgui_button.hpp"
+#include "pgui_bar.hpp"
 #include "pgui_load.hpp"
 #include <unordered_map>
 #include <vector>
@@ -14,6 +15,10 @@
 typedef struct PGUI_item{
     PGUI_Component itemComponent; /* Adds the background */
     std::vector<PGUI_Button*> itemButtons; /* Can be empty if the item has no buttons */
+
+    /* TODO: Fix the item bars, since bars will be part of a greater PGUI_Widget */
+
+    std::vector<void*> itemBars; /* Can be empty if the item has no bars, it can be either integer or float bar */
     PGUI_Bool visibility;
     Uint ID;
 }PGUI_Item;
