@@ -1,5 +1,4 @@
-#include "SDL.h"
-#include "SDL_image.h"
+#include "pgui_primitives.hpp"
 #include "pgui_button.hpp"
 #include <cstring>
 #include <iostream>

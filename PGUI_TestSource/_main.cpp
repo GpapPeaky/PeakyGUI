@@ -14,8 +14,13 @@ int main(int argc, char* argv[]){
 
     PGUI_CreateButtonAsWidget(incButtonArgs, 500, 500, PGUI_Load("inc.png"), rnd, PGUI_True); /* Faster approach to show just buttons as whole Widgets */
 
+<<<<<<< HEAD
     /* Button that changes the visibility*/
     PGUI_ActionArguments switchButtonArgs = { PGUI_WidgetVisibilitySwitchWrapper, { switchWidget }, 1};
+=======
+    /* Button that changes the visibility */
+    PGUI_ActionArguments switchButtonArgs = { PGUI_ItemVisibilitySwitchWrapper, { switchItem }, 1};
+>>>>>>> 40dd6c577495f4c969087de5013f01ac60f710d4
     PGUI_Button* visibilityButton = PGUI_CreateButtonComplete(switchButtonArgs, 1000, 0, PGUI_Load("butt.png"), rnd);
     PGUI_CreateWidgetComplete(0, 0, PGUI_Load("leftbar.png"), rnd, { visibilityButton }, PGUI_True);
 
