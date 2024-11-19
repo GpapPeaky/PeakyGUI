@@ -30,4 +30,6 @@ typedef struct PGUI_background{
     SDL_Texture* texture;
 }PGUI_Background;
 
+typedef void* PGUI_Uniform;
+
 #endif
