@@ -75,8 +75,8 @@ SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int 
  * @param max Maximum value
  * @param rateOfChange Rate of change per click
  */
-void PGUI_GetIntegerBarAttributes(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX, int* foreY, int* min, int* max,\
-int* rateOfChange);
+void PGUI_GetIntegerBarAttributes(PGUI_IntBar integerBar, int* backX = NULL, int* backY  = NULL, int* foreX = NULL, int* foreY = NULL, int* min = NULL, int* max = NULL,\
+int* rateOfChange = NULL);
 
 /**
  * @brief Gets The attributres of an integer bar
@@ -90,8 +90,8 @@ int* rateOfChange);
  * @param max Maximum value
  * @param rateOfChange Rate of change per click
  */
-void PGUI_QueryIntegerBar(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX, int* foreY, int* min, int* max,\
-int* rateOfChange);
+void PGUI_QueryIntegerBar(PGUI_IntBar integerBar, int* backX = NULL, int* backY = NULL, int* foreX = NULL, int* foreY = NULL, int* min = NULL, int* max = NULL,\
+int* rateOfChange = NULL);
 
 /**
  * @brief Print the attributes of a bar
