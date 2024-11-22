@@ -12,7 +12,7 @@ typedef struct PGUI_intBar{
     PGUI_Component foregroundComponent;
     int maxVariableValue;
     int minVariableValue;
-    int default;
+    int initial;
     int rateOfChange;
     int* uniformVariable; /* Variable that will change through the bar */
 }PGUI_IntBar;
@@ -23,7 +23,7 @@ typedef struct PGUI_floatBar{
     float maxVariableValue;
     float minVariableValue;
     float rateOfChange;
-    float default;
+    float initial;
     float* uniformVariable; /* Variable that will change through the bar */
 }PGUI_FloatBar;
 
@@ -36,12 +36,12 @@ typedef struct PGUI_floatBar{
  * @param min Min value of variable in the bar
  * @param rateOfChange Steps taken per slide of the bar
  * @param variable Uniform Variable to change
- * @param default Default value of the uniform if not initialised otherwise
+ * @param initial initial value of the uniform if not initialised otherwise
  * 
  * @returns Pointer to the created bar Widget
  */
 PGUI_IntBar* PGUI_CreateIntegerBar(PGUI_Component background, PGUI_Component foreground,\
-int max, int min, int rateOfChange, int* variable, int default);
+int max, int min, int rateOfChange, int* variable, int initial);
 
 /**
  * @brief Creates an integer bar
@@ -55,13 +55,13 @@ int max, int min, int rateOfChange, int* variable, int default);
  * @param max Maximum value
  * @param rateOfChange rate of change per slide/click
  * @param variable Uniform variable to change 
- * @param default Default value of uniform
+ * @param initial initial value of uniform
  * @param rnd Renderer to use
  * 
  * @returns Pointer to the created bar Widget
  */
 PGUI_IntBar* PGUI_CreateIntegerBarMargin(int x, int y, int marginSize, SDL_Surface* background,\
-SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int default);
+SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int initial);
 
 /**
  * @brief Gets The attributres of an integer bar

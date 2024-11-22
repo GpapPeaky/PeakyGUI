@@ -6,6 +6,10 @@ int main(int argc, char* argv[]){
 
     bool quit = false;
 
+    PGUI_Uniform Uvariable;
+    PGUI_IntBar* bar = PGUI_CreateIntegerBarMargin(0, 0, 2, PGUI_Load("inc.png"), PGUI_Load("inc.png"), 0, 15, 1, (int*)Uvariable, 5);
+    PGUI_PrintIntegerBar(*bar);
+
     /* Widget to change visibility of */
     PGUI_ActionArguments incButtonArgs = { PGUI_IncrementWrapper, {} , 0 };
     PGUI_Button* incButton1 =  PGUI_CreateButtonComplete(incButtonArgs, 0, 0, PGUI_Load("inc.png"), rnd);
