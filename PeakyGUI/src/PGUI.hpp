@@ -1,6 +1,10 @@
 #ifndef __PGUI_H__
+/**
+ * @brief Header to include for all PGUI functions
+ */
 #define __PGUI_H__
 
+#include "pgui_bar.hpp"
 #include "pgui_button.hpp"
 #include "pgui_primitives.hpp"
 #include "pgui_component.hpp"

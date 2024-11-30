@@ -22,11 +22,11 @@ SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int 
     PGUI_Component foregroundComponent = PGUI_CreateComponent(x + marginSize, y + marginSize, PGUI_UNDECIDED_VALUE,\
     PGUI_UNDECIDED_VALUE, foreground, rnd);
 
-    return PGUI_CreateIntegerBar(backgroundComponent, foregroundComponent, max, min, rateOfChange, variable, initial);
+    return PGUI_CreateIntegerBar(backgroundComponent, foregroundComponent, max, min, rateOfChange, variable, initial, rnd);
 }
 
-void PGUI_GetIntegerBarAttributes(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX, int* foreY, int* min, int* max,\
-int* rateOfChange){
+void PGUI_GetIntegerBarAttributes(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX,\
+int* foreY, int* min, int* max, int* rateOfChange){
     if(backX) *backX = integerBar.backgroundComponent.rect.x;
     if(backY) *backY = integerBar.backgroundComponent.rect.y;
     if(foreX) *foreX = integerBar.foregroundComponent.rect.x;
@@ -38,9 +38,19 @@ int* rateOfChange){
     return;
 }
 
-void PGUI_QueryIntegerBarAttributes(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX, int* foreY, int* min, int* max,\
-int* rateOfChange){
+void PGUI_QueryIntegerBarAttributes(PGUI_IntBar integerBar, int* backX, int* backY, int* foreX,\
+int* foreY, int* min, int* max, int* rateOfChange){
     PGUI_GetIntegerBarAttributes(integerBar, backX, backY, foreX, foreY, min, max, rateOfChange);
     
+    return;
+}
+
+void PGUI_PrintIntegerBar(PGUI_IntBar bar){
+    printf("background<%d, %d>\n", bar.backgroundComponent.rect.x, bar.backgroundComponent.rect.y);
+    printf("foreground<%d, %d>\n", bar.foregroundComponent.rect.x, bar.foregroundComponent.rect.y);
+    printf("min/max<%d-%d>\n", bar.minVariableValue, bar.maxVariableValue);
+    printf("rate of change <%d>\n", bar.rateOfChange);
+    printf("initial/default <%d>\n", bar.initial);
+
     return;
 }

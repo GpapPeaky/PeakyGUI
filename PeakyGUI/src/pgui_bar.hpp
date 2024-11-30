@@ -6,7 +6,6 @@
 
 #include "pgui_primitives.hpp"
 #include "pgui_component.hpp"
-
 typedef struct PGUI_intBar{
     PGUI_Component backgroundComponent;
     PGUI_Component foregroundComponent;
@@ -41,7 +40,7 @@ typedef struct PGUI_floatBar{
  * @returns Pointer to the created bar Widget
  */
 PGUI_IntBar* PGUI_CreateIntegerBar(PGUI_Component background, PGUI_Component foreground,\
-int max, int min, int rateOfChange, int* variable, int initial);
+int max, int min, int rateOfChange, int* variable, int initial, SDL_Renderer* rnd);
 
 /**
  * @brief Creates an integer bar
@@ -61,7 +60,7 @@ int max, int min, int rateOfChange, int* variable, int initial);
  * @returns Pointer to the created bar Widget
  */
 PGUI_IntBar* PGUI_CreateIntegerBarMargin(int x, int y, int marginSize, SDL_Surface* background,\
-SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int initial);
+SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int initial, SDL_Renderer* rnd);
 
 /**
  * @brief Gets The attributres of an integer bar
@@ -73,10 +72,10 @@ SDL_Surface* foreground, int min, int max, int rateOfChange, int* variable, int 
  * @param foreY Foreground y
  * @param min Minimum value
  * @param max Maximum value
- * @param rateOfChange Rate of change per click
+ * @param rateOfChange Rate of change per click/slide
  */
-void PGUI_GetIntegerBarAttributes(PGUI_IntBar integerBar, int* backX = NULL, int* backY  = NULL, int* foreX = NULL, int* foreY = NULL, int* min = NULL, int* max = NULL,\
-int* rateOfChange = NULL);
+void PGUI_GetIntegerBarAttributes(PGUI_IntBar integerBar, int* backX = NULL, int* backY  = NULL, int* foreX = NULL,\
+int* foreY = NULL, int* min = NULL, int* max = NULL, int* rateOfChange = NULL);
 
 /**
  * @brief Gets The attributres of an integer bar
@@ -88,10 +87,10 @@ int* rateOfChange = NULL);
  * @param foreY Foreground y
  * @param min Minimum value
  * @param max Maximum value
- * @param rateOfChange Rate of change per click
+ * @param rateOfChange Rate of change per click/slide
  */
-void PGUI_QueryIntegerBar(PGUI_IntBar integerBar, int* backX = NULL, int* backY = NULL, int* foreX = NULL, int* foreY = NULL, int* min = NULL, int* max = NULL,\
-int* rateOfChange = NULL);
+void PGUI_QueryIntegerBar(PGUI_IntBar integerBar, int* backX = NULL, int* backY = NULL, int* foreX = NULL,\
+int* foreY = NULL, int* min = NULL, int* max = NULL, int* rateOfChange = NULL);
 
 /**
  * @brief Print the attributes of a bar
