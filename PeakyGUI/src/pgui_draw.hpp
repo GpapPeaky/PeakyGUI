@@ -1,17 +1,13 @@
 #include "pgui_button.hpp"
 #include "pgui_item.hpp"
+#include "pgui_bar.hpp"
 #include <algorithm> /* For std::sort */
 
 #ifndef __PGUI_DRAW_H__
-#define __PGUI_DRAW_H__
-
 /**
- * @brief Draws a specific button to the screen
- * 
- * @param button button to draw
- * @param rnd renderer to use
+ * @brief Functions that draw PGUI components
  */
-void PGUI_DrawButton(PGUI_Button button, SDL_Renderer* rnd);
+#define __PGUI_DRAW_H__
 
 /**
  * @brief Higlights the clicked button

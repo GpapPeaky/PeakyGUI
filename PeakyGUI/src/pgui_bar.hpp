@@ -1,11 +1,16 @@
 #ifndef __PGUI_BAR_HPP__
 /**
  * @brief PeakyGUI bar for integers and floats, they can be found in the PGUI_Widgets as a field
+ * 
+ * @attention Due to bars being relatively weird, as a concept, we can only add the to items/widgets
+ * via a specific function (in comparison with the buttons, which we can pass as arguments when creating
+ * an item/widget)
+ * 
+ * @attention Float bars/sliders will be implemented later in the future
  */
 #define __PGUI_BAR_HPP__
 
-#include "pgui_primitives.hpp"
-#include "pgui_component.hpp"
+#include "pgui_widget.hpp" /* Same as pgui_item.hpp */
 typedef struct PGUI_intBar{
     PGUI_Component backgroundComponent;
     PGUI_Component foregroundComponent;
@@ -25,6 +30,26 @@ typedef struct PGUI_floatBar{
     float initial;
     float* uniformVariable; /* Variable that will change through the bar */
 }PGUI_FloatBar;
+
+/**
+ * @brief Adds a bar to a widget
+ * 
+ * @param widget Widget to add the bar to
+ * @param intBar bar to add
+ * 
+ * @returns true if successful, false if not
+ */
+PGUI_Bool PGUI_AddIntegerBarToItem(PGUI_Item* widget, PGUI_IntBar* intBar);
+
+/**
+ * @brief Adds a bar to a widget
+ * 
+ * @param widget Widget to add the bar to
+ * @param floatBar bar to add
+ * 
+ * @returns true if successful, false if not
+ */
+PGUI_Bool PGUI_AddFloatBarToItem(PGUI_Item* widget, PGUI_FloatBar* floatBar);
 
 /**
  * @brief Creates an integer bar
@@ -98,5 +123,20 @@ int* foreY = NULL, int* min = NULL, int* max = NULL, int* rateOfChange = NULL);
  * @param bar Bar to print
  */
 void PGUI_PrintIntegerBar(PGUI_IntBar bar);
+
+/**
+ * @brief Simulate interaction between mouse and slider/bar
+ * 
+ * @param bar Bar to check for interactions
+ * @param x x axis of mouse
+ * @param y y axis of mouse
+ * 
+ * @returns true if we interact with it, false if not
+ */
+PGUI_Bool PGUI_MouseSlideWithIntegerBar(PGUI_IntBar bar, int x, int y);
+
+/* Wrappers */
+#define PGUI_AddIntegerBarToWidget PGUI_AddIntegerBarToItem
+#define PGUI_AddFloatBarToWidget PGUI_AddFloatBarToItem
 
 #endif

@@ -54,3 +54,26 @@ void PGUI_PrintIntegerBar(PGUI_IntBar bar){
 
     return;
 }
+
+PGUI_Bool PGUI_AddIntegerBarToItem(PGUI_Item* widget, PGUI_IntBar* intBar){
+    if(widget == NULL || intBar == NULL){
+        printf("Null widget/bar\n");
+
+        return PGUI_False;
+    }
+
+    widget->itemBars.push_back((void*)intBar);
+
+    return PGUI_True;
+}
+
+PGUI_Bool PGUI_MouseSlideWithIntegerBar(PGUI_IntBar bar, int x, int y){
+    if((x > bar.backgroundComponent.rect.x &&
+    y > bar.backgroundComponent.rect.y &&
+    x < bar.backgroundComponent.rect.x + bar.backgroundComponent.rect.w &&
+    x < bar.backgroundComponent.rect.y + bar.backgroundComponent.rect.h)){
+        return PGUI_True;
+    }
+
+    return PGUI_False;
+}
