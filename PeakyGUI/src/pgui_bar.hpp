@@ -135,6 +135,13 @@ void PGUI_PrintIntegerBar(PGUI_IntBar bar);
  */
 PGUI_Bool PGUI_MouseSlideWithIntegerBar(PGUI_IntBar bar, int x, int y);
 
+/**
+ * @brief Simulates the "sliding" part of the slider
+ * 
+ * @param bar Bar to "slide"
+ */
+void PGUI_SimulateBarSlider(PGUI_IntBar bar);
+
 /* Wrappers */
 #define PGUI_AddIntegerBarToWidget PGUI_AddIntegerBarToItem
 #define PGUI_AddFloatBarToWidget PGUI_AddFloatBarToItem

@@ -13,7 +13,7 @@ void PGUI_EventCycle(int x, int y){
         for(void* bar : (*item).itemBars){
             PGUI_IntBar* interactionBar = (PGUI_IntBar*)bar;
             if(PGUI_MouseSlideWithIntegerBar(*interactionBar, x, y) == PGUI_True && item->visibility == PGUI_True){
-                // PGUI_SimulateBarSlider(*interactionBar); /* TODO: Make the simulation function of sliding */
+                PGUI_SimulateBarSlider(*interactionBar); /* TODO: Make the simulation function of sliding */
             }
         }
     }
