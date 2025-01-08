@@ -156,7 +156,8 @@ void* PGUI_ItemVisibilitySwitchWrapper(PGUI_ArgumentVector args){
     return NULL;
 }
 
-PGUI_Item* PGUI_CreateButtonAsItem(PGUI_ActionArguments action, int x, int y, SDL_Surface* buttonBackground, SDL_Renderer* rnd,  PGUI_Bool visibility){
+PGUI_Item* PGUI_CreateButtonAsItem(PGUI_ActionArguments action, int x, int y,\
+    SDL_Surface* buttonBackground, SDL_Renderer* rnd,  PGUI_Bool visibility){
     PGUI_Button* button = PGUI_CreateButtonComplete(action, x, y, buttonBackground, rnd);
 
     PGUI_Item* item = PGUI_CreateItemComplete(x, y, PGUI_Load("", PGUI_EMPTY_COMPONENT), rnd, { button }, visibility);

@@ -18,12 +18,18 @@ typedef bool PGUI_Bool;
 #define PGUI_True true
 #define PGUI_False false
 
+#define PGUI_TRUE PGUI_True
+#define PGUI_FALSE PGUI_False
+
 typedef SDL_Rect PGUI_Rect;
 
 #define PGUI_UNDECIDED_VALUE 26112004
+#define PUV PGUI_UNDECIDED_VALUE
 
 #define PGUI_EXIT_SUCCESS 0
+#define PES PGUI_EXIT_SUCCESS
 #define PGUI_EXIT_FAIL -1
+#define PEF PGUI_EXIT_FAIL
 
 typedef struct PGUI_background{
     SDL_Surface* surface;
