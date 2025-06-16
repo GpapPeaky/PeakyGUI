@@ -1,4 +1,4 @@
-#include "SDL.h"
+#include "SDL.h"            /* These here are the only libraries that require spcific linking, in respect to the local lib directories */
 #include "SDL_image.h"
 #include "PGUI_debug.hpp"
 #include <iostream>
